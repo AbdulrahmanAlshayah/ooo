@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+         \App\Models\Admin::factory()->create();
     }
+//     لتشغيل ال  seeder الذي يتحكم بال factory نكتب php artisan migrate --seed
+// اما لأنشاء واحد خاص فيك php artisan make:seeder AdminSeed
 }
