@@ -14,7 +14,8 @@
                 <div class="box-body">
                     <div class="row">
                         <div class="col">
-                            <form novalidate="">
+                            <form method="post" action="{{route('admin.profile.store')}}" enctype="multipart/form-data">
+                                @csrf
                                 <div class="row">
                                     <div class="col-12">
 
@@ -23,7 +24,8 @@
                                                 <div class="form-group">
                                                     <h5>Admin User Name <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="name" class="form-control" required="" value="{{$editData->name}}"> </div>
+                                                        <input type="text" name="name" class="form-control" required="" value="{{$editData->name}}">
+                                                    </div>
                                                 </div>
                                             </div> {{-- end col md 6--}}
 
@@ -31,7 +33,8 @@
                                                 <div class="form-group">
                                                     <h5>Admin Email <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="email" name="email" class="form-control" required="" value="{{$editData->email}}"> </div>
+                                                        <input type="email" name="email" class="form-control" required="" value="{{$editData->email}}">
+                                                    </div>
                                                 </div>
                                             </div> {{-- end col md 6--}}
                                         </div> {{-- end row--}}
@@ -43,12 +46,13 @@
                                                 <div class="form-group">
                                                     <h5>Profil Image <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="file" name="profile_photo_path" class="form-control" required="" id="image"></div>
+                                                        <input type="file" name="profile_photo_path" class="form-control" required="" id="image">
+                                                    </div>
                                                 </div>
                                             </div>  {{-- end col md 6--}}
 
                                             <div class="col-md-6">
-                                                <img id="showImage" src="{{(!empty($EditData->profile_photo_path))? url('upload/admin_images/'.$EditData->profile_photo_path):url('upload/no_image.jpg')}}" alt=""style="width: 100px; height: 100px">
+                                                <img id="showImage" src="{{(!empty($editData->profile_photo_path))? url('upload/admin_images/'.$editData->profile_photo_path):url('upload/no_image.jpg')}}" alt=""style="width: 100px; height: 100px">
                                             </div>  {{-- end col md 6--}}
                                         </div>  {{-- end row--}}
 
